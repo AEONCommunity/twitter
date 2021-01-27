@@ -5,7 +5,7 @@ This repository can be used to discuss things related to @aeoncommunity like mak
 
 ## Posting as @aeoncommunity
 
-To make a post as /u/aeoncommunity, create a file with title `post-YYYY-MM-DD-title.md` and add the post contents in the file. 
+To make a post, create a file with title `post-YYYY-MM-DD-title.md` and add the post contents in the file. 
 If the pull request is approved, @aeoncommunity will make the post on twitter. 
 
 ## Other issues
