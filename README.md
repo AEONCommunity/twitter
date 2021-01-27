@@ -3,11 +3,19 @@
 All things related to @aeoncommunity
 This repository can be used to discuss things related to @aeoncommunity like making posts under the account. 
 
-## Posting as @aeoncommunity
+## How it works
 
-To make a post, create a file with title `post-YYYY-MM-DD-title.md` and add the post contents in the file. 
-If the pull request is approved, @aeoncommunity will make the post on twitter. 
+`twitter-together` is using two workflows
 
-## Other issues
+1. `push` event to publish new tweets
+2. `pull_request` event to validate and preview new tweets
 
-Make an issue under the issues tab and add the contents of the request in the file. 
+### The `push` event
+
+When triggered by the `push` event, the script looks for added `*.tweet` files in the `tweets/` folder or subfolders. If there are any, a tweet for each added tweet file is published.
+
+If there is no `tweets/` subfolder, the script opens a pull request creating the folder with further instructions.
+
+### The `pull_request` event
+
+For the `pull_request` event, the script handles only `opened` and `synchronize` actions. It looks for new `*.tweet` files in the `tweets/` folder or subfolders. If there are any, the length of each tweet is validated. If one is too long, a failed check run with an explanation is created. If all tweets are valid, a check run with a preview of all tweets is created.
